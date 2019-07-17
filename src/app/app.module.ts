@@ -12,11 +12,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { SymbolsComponent } from './symbols/symbols.component';
 import { ChartListComponent } from './dashboard/chart-list/chart-list.component';
+import {SymbolsService} from './symbols/symbols.service';
 
 @NgModule({
 	declarations: [AppComponent, DashboardComponent, WatchlistComponent, WatchlistItemComponent, ChartItemComponent, SymbolsComponent, ChartListComponent],
 	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, SharedModule],
-	providers: [],
+	providers: [ SymbolsService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {

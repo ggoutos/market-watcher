@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Symbol} from '../../../symbols/symbol.model';
+import {ActivatedRoute, Params} from '@angular/router';
+import {SymbolsService} from '../../../symbols/symbols.service';
 
 @Component({
   selector: 'mw-chart-item',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chart-item.component.scss']
 })
 export class ChartItemComponent implements OnInit {
+	index: number;
+	symbol: Symbol;
 
-  constructor() { }
+	constructor(private route: ActivatedRoute, private symbolsService: SymbolsService) {
+	}
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+		this.route.params.subscribe((params: Params) => {
+			this.index = +params['id'];
+			this.symbol = this.symbolsService.getSymbol(this.index);
+			console.log(this.symbol.description);
+		});
+
+
+	}
+
+
 
 }

@@ -9,6 +9,8 @@ import {Symbol} from '../../../symbols/symbol.model';
 export class WatchlistItemComponent implements OnInit {
 
 	@Input() symbol: Symbol;
+	@Input() index: number;
+
 	source: String;
 
 	constructor() {

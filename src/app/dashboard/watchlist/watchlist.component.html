@@ -2,6 +2,8 @@
 <!-- *ngFor -->
 <div class="myClass">
 	<mw-watchlist-item
-		*ngFor="let symbol of symbols" [symbol]="symbol">
+		*ngFor="let symbol of symbols; let i = index"
+		[symbol]="symbol"
+		[index]="i">
 	</mw-watchlist-item>
 </div>
