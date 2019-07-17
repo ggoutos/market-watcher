@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test:watch": "jest --watch",
-	"backend": "node ./server/server.js",
-	"compodoc": "npx compodoc -p tsconfig.app.json"
+    "backend": "node ./server/server.js",
+    "compodoc": "npx compodoc -p tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +30,7 @@
     "roboto-fontface": "^0.10.0",
     "rxjs": "~6.4.0",
     "subsink": "^1.0.0",
+    "swimlane": "0.0.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Credentials } from '../auth.interfaces';
-import { AuthService } from '../auth.service';
+import {Component, OnInit} from '@angular/core';
+import {Credentials} from '../auth.interfaces';
+import {AuthService} from '../auth.service';
+import {StorageService} from '../storage.service';
 
 @Component({
 	selector: 'mw-login',
@@ -10,12 +10,13 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 	isLoginDisabled = false;
+	password: string;
+
+	constructor(private authService: AuthService, private storageService: StorageService) {
+	}
 
 	// tslint:disable-next-line:variable-name
 	private _username: string;
-	password: string;
-
-	constructor(private authService: AuthService, private storageService: StorageService) {}
 
 	get username() {
 		return this._username;
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
 		this._username = name;
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+	}
 
 	login() {
 		const {username, password} = this;
