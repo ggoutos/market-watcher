@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Symbol} from '../../symbols/symbol.model';
+import {Symbol} from '../../../symbols/symbol.model';
 
 @Component({
 	selector: 'mw-watchlist-item',
