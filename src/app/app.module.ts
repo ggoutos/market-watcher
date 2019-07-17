@@ -11,9 +11,10 @@ import {ChartComponent} from './dashboard/chart/chart.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { SymbolsComponent } from './symbols/symbols.component';
+import { ChartListComponent } from './dashboard/chart-list/chart-list.component';
 
 @NgModule({
-	declarations: [AppComponent, DashboardComponent, WatchlistComponent, WatchlistItemComponent, ChartComponent, SymbolsComponent],
+	declarations: [AppComponent, DashboardComponent, WatchlistComponent, WatchlistItemComponent, ChartComponent, SymbolsComponent, ChartListComponent],
 	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, SharedModule],
 	providers: [],
 	bootstrap: [AppComponent]
