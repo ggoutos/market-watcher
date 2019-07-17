@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
+import {Symbol} from '../../symbols/symbol.model';
+import {ActivatedRoute, Params} from '@angular/router';
+import {SymbolsService} from '../../symbols/symbols.service';
 
 @Component({
 	selector: 'mw-chart-list',
@@ -7,10 +10,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ChartListComponent implements OnInit {
 
-	constructor() {
+	index: number;
+	symbol: Symbol;
+
+	constructor(private route: ActivatedRoute, private symbolsService: SymbolsService) {
 	}
 
 	ngOnInit() {
+		this.route.params.subscribe((params: Params) => {
+			this.index = +params['id'];
+			this.symbol = this.symbolsService.getSymbol(this.index);
+		});
 	}
 
 }
