@@ -1,0 +1,29 @@
+<div class="col">
+	<div class="row">
+		<div class="col">
+			<p>{{ symbol.description }}</p>
+		</div>
+		<div class="col-xs-6">
+			<p>{{ symbol.currency }} </p>
+		</div>
+		<div class="col-xs-12">
+			<span class="pull-right">
+				<img
+					[src]="source"
+					alt="{{ symbol.difference }}"
+					class="img-responsive"
+					style="max-height: 20px;">
+			  </span>
+		</div>
+
+	</div>
+	<div class="row">
+		<div class="col">
+			<p>{{ symbol.stockExchangeLong }}</p>
+		</div>
+		<div class="col-xs-6">
+			<p>{{ symbol.price }}</p>
+		</div>
+	</div>
+</div>
+<hr>
