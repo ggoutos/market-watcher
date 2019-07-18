@@ -16,11 +16,12 @@ import {SymbolsService} from './symbols/symbols.service';
 import {LoginComponent} from './login/login.component';
 import {interceptorProviders} from './interceptors';
 import {FormsModule} from '@angular/forms';
+import {WorldTradingDataService} from "./shared/world-trading-data.service";
 
 @NgModule({
 	declarations: [AppComponent, DashboardComponent, WatchlistComponent, WatchlistItemComponent, ChartItemComponent, SymbolsComponent, ChartListComponent, LoginComponent],
 	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, SharedModule, FormsModule],
-	providers: [SymbolsService, ...interceptorProviders],
+	providers: [WorldTradingDataService, SymbolsService, ...interceptorProviders],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
