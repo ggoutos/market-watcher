@@ -10,14 +10,17 @@ import {WatchlistItemComponent} from './dashboard/watchlist/watchlist-item/watch
 import {ChartItemComponent} from './dashboard/chart-list/chart-item/chart-item.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-import { SymbolsComponent } from './symbols/symbols.component';
-import { ChartListComponent } from './dashboard/chart-list/chart-list.component';
+import {SymbolsComponent} from './symbols/symbols.component';
+import {ChartListComponent} from './dashboard/chart-list/chart-list.component';
 import {SymbolsService} from './symbols/symbols.service';
+import {LoginComponent} from './login/login.component';
+import {interceptorProviders} from './interceptors';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
-	declarations: [AppComponent, DashboardComponent, WatchlistComponent, WatchlistItemComponent, ChartItemComponent, SymbolsComponent, ChartListComponent],
-	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, SharedModule],
-	providers: [ SymbolsService],
+	declarations: [AppComponent, DashboardComponent, WatchlistComponent, WatchlistItemComponent, ChartItemComponent, SymbolsComponent, ChartListComponent, LoginComponent],
+	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, SharedModule, FormsModule],
+	providers: [SymbolsService, ...interceptorProviders],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
