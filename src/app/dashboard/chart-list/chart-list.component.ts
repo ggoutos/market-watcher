@@ -23,7 +23,7 @@ export class ChartListComponent implements OnInit {
 			this.index = +params['id'];
 			this.symbol = this.symbolsService.getSymbol(this.index);
 
-			this.worldTradingDataService.getPrices(this.symbol);
+			// call workdtrading api
 		});
 	}
 

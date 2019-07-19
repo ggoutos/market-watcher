@@ -9,6 +9,7 @@ export class SymbolsService {
 	public symbols: Symbol[];
 
 	constructor() {
+		// call backend
 		this.generateSymbols();
 	}
 
