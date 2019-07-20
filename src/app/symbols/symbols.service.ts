@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Symbol} from './symbol.model';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
 	providedIn: 'root'
@@ -8,9 +9,11 @@ export class SymbolsService {
 
 	public symbols: Symbol[];
 
-	constructor() {
+	constructor(private httpClient: HttpClient) {
 		// call backend
-		this.generateSymbols();
+		//this.getSymbolsFromBackend();
+
+		 this.generateSymbols();
 	}
 
 	getSymbols() {
@@ -27,5 +30,9 @@ export class SymbolsService {
 			new Symbol('000002.SZ', 'VANKEA/Shs A Vtg 1.00', 'CNY', 'Korean Stock Exchange', 0, null),
 			new Symbol('000004.SZ', 'Shenzhen Cau Technology CoLtd.', 'CNY', 'Hong Kong Stock Exchange', 0, null)
 		];
+	}
+
+	private getSymbolsFromBackend() {
+		this.httpClient.get('api/getallsymbols');
 	}
 }

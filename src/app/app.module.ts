@@ -17,10 +17,11 @@ import {ChartListComponent} from './dashboard/chart-list/chart-list.component';
 import {interceptorProviders} from './interceptors';
 import {SymbolsService} from './symbols/symbols.service';
 import {WorldTradingDataService} from './shared/world-trading-data.service';
+import {LineChartModule} from "@swimlane/ngx-charts";
 
 @NgModule({
 	declarations: [AppComponent, DashboardComponent, WatchlistComponent, WatchlistItemComponent, ChartItemComponent, SymbolsComponent, ChartListComponent, LoginComponent],
-	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, SharedModule, FormsModule],
+	imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule, SharedModule, FormsModule, LineChartModule],
 	providers: [WorldTradingDataService, SymbolsService, ...interceptorProviders],
 	bootstrap: [AppComponent]
 })

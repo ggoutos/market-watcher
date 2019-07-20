@@ -23,12 +23,11 @@ export class WatchlistComponent implements OnInit {
 		//call api to get price and difference
 		this.symbols.forEach((symbol: Symbol) => {
 			this.worldTradingDataService.getPrices(symbol).subscribe(value => {
-					let index = this.symbols.indexOf(symbol);
-
-					this.symbols[index].price = value.data[0].price;
-					this.symbols[index].difference = value.data[0].price - value.data[0]['close_yesterday'];
-			}, error1 => {
-
+				let index = this.symbols.indexOf(symbol);
+				this.symbols[index].price = value.data[0].price;
+				this.symbols[index].difference = value.data[0].price - value.data[0]['close_yesterday'];
+			}, error => {
+				console.log(error);
 			});
 		});
 	}

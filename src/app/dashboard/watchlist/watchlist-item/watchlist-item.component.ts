@@ -17,7 +17,6 @@ export class WatchlistItemComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(this.symbol);
 		if (this.symbol.difference > 0 ) {
 			this.source = 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Green-Up-Arrow.svg';
 		}
