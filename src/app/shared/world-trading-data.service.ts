@@ -11,7 +11,7 @@ import {Intraday} from "../dashboard/chart-list/chart-item/intraday";
 export class WorldTradingDataService {
 
 	private http: HttpClient;
-	private api_token = 'qTVQgCtNavDHni1Bq4BmATsjzmEWJgNmQUNF7G63zRyqVPRi9VUr5Xn0SLPD';
+	private api_token = 'hC160T9XVkXPpFLKKGndSeHXsndIKnzIPx0DnH1R4bTB7qqSMwhMzdKcbVBA';
 
 	constructor(handler: HttpBackend) {
 		this.http = new HttpClient(handler);
@@ -28,11 +28,21 @@ export class WorldTradingDataService {
 		return this.http.get('https://intraday.worldtradingdata.com/api/v1/intraday', {params});
 	}
 
-	convertData(name: string, data: Intraday): Series[] {
+	getHistory(symbol: Symbol): Observable<any> {
+		let params = {
+			'symbol': symbol.id,
+			'sort': 'newest',
+			'api_token': this.api_token
+		};
+
+		return this.http.get('https://api.worldtradingdata.com/api/v1/history', {params});
+	}
+
+	convertData(name: string, data: any): Series[] {
 		const result = {name, series: null};
-		result.series = Object.keys(data.intraday).map(k => ({
+		result.series = Object.keys(data[name.toLowerCase()]).map(k => ({
 			name: k,
-			value: +data.intraday[k].close
+			value: +data[name.toLowerCase()][k].close
 		}));
 		return [result];
 	}
