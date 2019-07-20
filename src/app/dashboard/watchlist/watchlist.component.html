@@ -1,9 +1,12 @@
 <h2 class="myMargins">Watchlist</h2>
 <!-- *ngFor -->
 <div class="myClass">
-	<mw-watchlist-item
-		*ngFor="let symbol of symbols; let i = index"
-		[symbol]="symbol"
-		[index]="i">
-	</mw-watchlist-item>
+	<ng-container *ngFor="let symbol of symbols; let i = index">
+		<mw-watchlist-item
+			*ngIf="symbol.difference"
+			[symbol]="symbol"
+			[index]="i">
+		</mw-watchlist-item>
+	</ng-container>
+
 </div>

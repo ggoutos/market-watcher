@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Symbol} from '../symbols/symbol.model'
 import {HttpBackend, HttpClient} from '@angular/common/http';
+import {Observable} from "rxjs";
 
 @Injectable({
 	providedIn: 'root'
@@ -14,20 +15,13 @@ export class WorldTradingDataService {
 		this.http = new HttpClient(handler);
 	}
 
-	getPrices(symbol: Symbol): any {
+	getPrices(symbol: Symbol): Observable<any> {
 
 		let params = {
 			'symbol': symbol.id,
 			'api_token': this.api_token
 		};
 
-		this.http.get('https://api.worldtradingdata.com/api/v1/stock', {observe: 'body', params, responseType: 'json'})
-			.subscribe(value => {
-				//console.log(JSON.stringify(value));
-				return value;
-			}, error => {
-				console.log(error);
-				return error;
-			});
+		return this.http.get('https://api.worldtradingdata.com/api/v1/stock', {params});
 	}
 }
