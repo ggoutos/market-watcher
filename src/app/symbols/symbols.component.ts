@@ -9,6 +9,7 @@ import {SymbolsService} from "./symbols.service";
 })
 export class SymbolsComponent implements OnInit {
 	symbols: Symbol[];
+	search: string;
 
 	constructor(private symbolsService: SymbolsService) {
 	}
