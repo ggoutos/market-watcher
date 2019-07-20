@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Credentials} from './auth.interfaces';
 import {AuthService} from './auth.service';
 import {StorageService} from './storage.service';
+import {Router} from "@angular/router";
 
 @Component({
 	selector: 'mw-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 	isLoginDisabled = false;
 	password: string;
 
-	constructor(private authService: AuthService, private storageService: StorageService) {
+	constructor(private router: Router, private authService: AuthService, private storageService: StorageService) {
 	}
 
 	// tslint:disable-next-line:variable-name
@@ -36,11 +37,13 @@ export class LoginComponent implements OnInit {
 			username,
 			password
 		};
-		this.authService.login(credentials)
-			.subscribe(jwt => {
-				this.storageService.set('token', jwt);
-				this.authService.isLoggedIn = true;
-			});
+
+		this.router.navigate(['/dashboard']);
+		// this.authService.login(credentials)
+		// 	.subscribe(jwt => {
+		// 		this.storageService.set('token', jwt);
+		// 		this.authService.isLoggedIn = true;
+		// 	});
 
 	}
 }
